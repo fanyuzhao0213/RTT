@@ -68,7 +68,7 @@ void OsTaskuartParseData(rt_uint8_t ThreadPriority, rt_uint32_t ThreadTick)
 {
     rt_thread_init(&uartParseData_Thread,       // struct rt_thread  *thread
                    "uartParseData",             // const char       *name
-                   uartParseData,               // void          (*entry)(void *parameter)
+                   uartParseData,               // void          (*entry)(void *parameter)  
                    RT_NULL,                     // void          *parameter
                    &uartParseData_stack[0],     // void          *stack_start
                    sizeof(uartParseData_stack), // rt_uint32_t    stack_size

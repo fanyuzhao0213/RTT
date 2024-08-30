@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER, STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;.;..\..\..\libcpu\arm\cortex-m4;..\..\..\libcpu\arm\common;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\components\finsh;.;..\..\..\include;..\..\..\components\libc\compilers\common;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include;.\MiddleWares</IncludePath>
+              <IncludePath>applications;.;..\..\..\libcpu\arm\cortex-m4;..\..\..\libcpu\arm\common;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\components\finsh;.;..\..\..\include;..\..\..\components\libc\compilers\common;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include;.\MiddleWares;.\MiddleWares\oled\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -423,9 +423,9 @@
               <FilePath>.\applications\uartParseData.c</FilePath>
             </File>
             <File>
-              <FileName>oled.c</FileName>
+              <FileName>display_iic.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\oled.c</FilePath>
+              <FilePath>.\MiddleWares\display_iic.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -468,9 +468,19 @@
               <FilePath>.\MiddleWares\getDataFromRingBuf.c</FilePath>
             </File>
             <File>
-              <FileName>font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\font.h</FilePath>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\oled\src\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>oledconf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\oled\src\oledconf.c</FilePath>
+            </File>
+            <File>
+              <FileName>oledio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\oled\src\oledio.c</FilePath>
             </File>
           </Files>
         </Group>

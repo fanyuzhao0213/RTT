@@ -35,7 +35,7 @@ static const OsTaskStruct OsTaskInitTable[] =
     {1,          			OsTaskmyThread02,          		3,                     	5},
 	{2,          			OsTaskmuartRevData,          	3,                     	5},	
 	{3,						OsTaskuartParseData,			4,						5},
-	{4,						OsMyOledThreadInit,			3,						5},
+	{4,						OsDisplayIICThreadInit,			3,						5},
     {OS_TASK_FUNC_ID_END,          	RT_NULL,            	1,              5},
 };
 
