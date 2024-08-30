@@ -422,6 +422,11 @@
               <FileType>1</FileType>
               <FilePath>.\applications\uartParseData.c</FilePath>
             </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\oled.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -461,6 +466,11 @@
               <FileName>getDataFromRingBuf.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\MiddleWares\getDataFromRingBuf.c</FilePath>
+            </File>
+            <File>
+              <FileName>font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\font.h</FilePath>
             </File>
           </Files>
         </Group>

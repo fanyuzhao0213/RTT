@@ -227,8 +227,8 @@
 
 /* Notice: PB6 --> 22; PB7 --> 23 */
 
-#define BSP_I2C1_SCL_PIN 23
-#define BSP_I2C1_SDA_PIN 22
+#define BSP_I2C1_SCL_PIN 39
+#define BSP_I2C1_SDA_PIN 38
 #define BSP_USING_TIM
 #define BSP_USING_TIM3
 #define BSP_USING_TIM2

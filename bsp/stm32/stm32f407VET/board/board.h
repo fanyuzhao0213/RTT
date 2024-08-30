@@ -21,6 +21,7 @@
 #include <myThread02.h>
 #include <uartRevData.h>
 #include <uartParseData.h>
+#include "oled.h"
 
 #ifdef __cplusplus
 extern "C" {
