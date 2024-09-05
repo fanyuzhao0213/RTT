@@ -23,4 +23,10 @@ rt_uint8_t GetMutexUartRingBuf(rt_int32_t TimeOut);
 rt_int8_t SemParseUplinkDataInit(void);
 void ReleaseSemParseUplinkData(void);
 rt_uint8_t GetSemParseUplinkData(rt_int32_t TimeOut);
+
+
+rt_int8_t SemSemNetInfoInit(void);
+void ReleaseSemNetInfo(void);
+rt_uint8_t GetSemNetInfo(rt_int32_t TimeOut);
+
 #endif

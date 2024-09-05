@@ -11,12 +11,13 @@ rt_uint8_t test;
 void updateWord(void)
 {
 	OLED_SetIntegerNum(22, 34, test, 3, 1, FONT_12X12);
+	test++;
 }
 
-void updatePrintf(void)
-{
-	OLED_Printf("test = %d\n", test++);
-}
+//void updatePrintf(void)
+//{
+//	OLED_Printf("test = %d\n", test++);
+//}
 
 void updateDisplay(void)
 {
@@ -42,8 +43,8 @@ typedef struct
 static TimerTaskInfo TimerTask[TIMER_TASK_MAX_COUNTER] =
 {
     {TASK_RUN,   100,       		100,   				updateDisplay},
-	{TASK_RUN,   100,  				100,				updatePrintf},
-	{TASK_RUN,   1000,   			1000, 				updateWord}
+//	{TASK_RUN,   100,  				100,				updatePrintf},
+//	{TASK_RUN,   1000,   			1000, 				updateWord}
 };
 
 void TimerTaskRemarks(void)
@@ -109,6 +110,10 @@ void MyDisplayIICThread(void *parameter)
 	rt_uint8_t pin2 = GET_PIN(C, 7);
 	rt_kprintf("pin1:%d,pin2:%d\n", pin1,pin2);
 
+	rt_uint8_t pin3 = GET_PIN(D, 4);
+	rt_uint8_t pin4 = GET_PIN(D, 5);
+	rt_kprintf("pin3:%d,pin4:%d\n", pin3,pin4);
+	
     oled_i2c_bus = (struct rt_i2c_bus_device *)rt_device_find(OLED_I2C_BUS_NAME);
     if (oled_i2c_bus == RT_NULL)
     {
@@ -122,16 +127,16 @@ void MyDisplayIICThread(void *parameter)
 	TimerMSDevInit(mstimerSCallback);
 	OLED_Init();
 	OLED_Clear(OLED_BLACK);
-    OLED_DrawGraphic(20, 0, "bootLog", 1);
-    OLED_SyncScreen(20, 0, 128, 64);
-    rt_thread_mdelay(1500);
-
-    OLED_SetFill(0, 0, 128, 64, OLED_BLACK);
-
+//	OLED_Clear(OLED_BLACK);
+//	OLED_SetFill(0, 0, 128, 64, OLED_BLACK);
+//    OLED_DrawGraphic(20, 0, "bootLog", 1);
+//    OLED_SyncScreen(20, 0, 128, 64);
+//    rt_thread_mdelay(1500);
+//    OLED_SetFill(0, 0, 128, 64, OLED_BLACK);
     OLED_SetColor(OLED_WHITE, OLED_BLACK);
-    OLED_SetText(6, 5, "西安途丁", 0, FONT_12X12);
+    OLED_SetText(40, 2, "西安途丁", 0, FONT_12X12);
     OLED_SetColor(OLED_BLACK, OLED_WHITE);
-    OLED_DrawCircle(30, 40, 20, 4);
+    OLED_DrawCircle(68, 40, 20, 4);
 	while(1)
 	{
 		TimerTaskProcess();

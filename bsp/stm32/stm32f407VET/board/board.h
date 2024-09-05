@@ -22,6 +22,10 @@
 #include <uartRevData.h>
 #include <uartParseData.h>
 #include "display_iic.h"
+#include "esp8266Thread.h"
+#include "EEPROM.h"
+#include "ds18B20.h"
+
 
 #ifdef __cplusplus
 extern "C" {

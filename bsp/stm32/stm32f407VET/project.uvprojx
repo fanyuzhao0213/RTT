@@ -336,9 +336,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER, STM32F407xx</Define>
+              <Define>USE_HAL_DRIVER, STM32F407xx, RT_USING_ARM_LIBC</Define>
               <Undefine></Undefine>
-              <IncludePath>applications;.;..\..\..\libcpu\arm\cortex-m4;..\..\..\libcpu\arm\common;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\components\finsh;.;..\..\..\include;..\..\..\components\libc\compilers\common;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include;.\MiddleWares;.\MiddleWares\oled\inc</IncludePath>
+              <IncludePath>applications;.;..\..\..\components\net\at\include;..\..\..\components\net\at\at_socket;packages\at_device-v2.0.4\inc;packages\at_device-v2.0.4\class\esp8266;packages\cJSON-v1.7.17;..\..\..\libcpu\arm\cortex-m4;..\..\..\libcpu\arm\common;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\spi;..\..\..\components\drivers\include;..\..\..\components\drivers\include;..\..\..\components\drivers\include;board;board\CubeMX_Config\Inc;..\libraries\HAL_Drivers;..\libraries\HAL_Drivers\config;..\..\..\components\dfs\include;..\..\..\components\dfs\filesystems\devfs;..\..\..\components\finsh;.;..\..\..\include;..\..\..\components\libc\compilers\armlibc;..\..\..\components\libc\compilers\common;packages\mymqtt-latest\MQTTPacket\src;packages\mymqtt-latest\MQTTClient-C;..\..\..\components\net\netdev\include;..\..\..\components\net\sal_socket\include;..\..\..\components\net\sal_socket\include\socket;..\..\..\components\net\sal_socket\impl;..\..\..\components\net\sal_socket\include\dfs_net;..\..\..\components\net\sal_socket\include\dfs_net\sys_select;..\..\..\components\net\sal_socket\include\socket\sys_socket;..\libraries\STM32F4xx_HAL\STM32F4xx_HAL_Driver\Inc;..\libraries\STM32F4xx_HAL\CMSIS\Device\ST\STM32F4xx\Include;..\libraries\STM32F4xx_HAL\CMSIS\Include;.\MiddleWares;.\MiddleWares\oled\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -388,6 +388,66 @@
               <FilePath>applications\main.c</FilePath>
             </File>
             <File>
+              <FileName>Data_RingBuffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\Data_RingBuffer.c</FilePath>
+            </File>
+            <File>
+              <FileName>display_iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\display_iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>EEPROM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\EEPROM.c</FilePath>
+            </File>
+            <File>
+              <FileName>EventInit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\EventInit.c</FilePath>
+            </File>
+            <File>
+              <FileName>getDataFromRingBuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\getDataFromRingBuf.c</FilePath>
+            </File>
+            <File>
+              <FileName>IPCResource.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\IPCResource.c</FilePath>
+            </File>
+            <File>
+              <FileName>Protocol_BLE.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\Protocol_BLE.c</FilePath>
+            </File>
+            <File>
+              <FileName>VerificationAlgorithm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\VerificationAlgorithm.c</FilePath>
+            </File>
+            <File>
+              <FileName>oledio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\oled\src\oledio.c</FilePath>
+            </File>
+            <File>
+              <FileName>oledconf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\oled\src\oledconf.c</FilePath>
+            </File>
+            <File>
+              <FileName>oled.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\oled\src\oled.c</FilePath>
+            </File>
+            <File>
+              <FileName>esp8266Thread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\applications\esp8266Thread.c</FilePath>
+            </File>
+            <File>
               <FileName>iwdg.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\iwdg.c</FilePath>
@@ -408,11 +468,6 @@
               <FilePath>.\applications\timer.c</FilePath>
             </File>
             <File>
-              <FileName>uartRevData.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\applications\uartRevData.c</FilePath>
-            </File>
-            <File>
               <FileName>uartConfig.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\applications\uartConfig.c</FilePath>
@@ -423,64 +478,79 @@
               <FilePath>.\applications\uartParseData.c</FilePath>
             </File>
             <File>
-              <FileName>display_iic.c</FileName>
+              <FileName>uartRevData.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\display_iic.c</FilePath>
+              <FilePath>.\applications\uartRevData.c</FilePath>
+            </File>
+            <File>
+              <FileName>ds18B20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MiddleWares\ds18B20.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>MiddleWares</GroupName>
+          <GroupName>AT</GroupName>
           <Files>
             <File>
-              <FileName>Data_RingBuffer.c</FileName>
+              <FileName>at_utils.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\Data_RingBuffer.c</FilePath>
+              <FilePath>..\..\..\components\net\at\src\at_utils.c</FilePath>
             </File>
             <File>
-              <FileName>EEPROM.c</FileName>
+              <FileName>at_cli.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\EEPROM.c</FilePath>
+              <FilePath>..\..\..\components\net\at\src\at_cli.c</FilePath>
             </File>
             <File>
-              <FileName>IPCResource.c</FileName>
+              <FileName>at_client.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\IPCResource.c</FilePath>
+              <FilePath>..\..\..\components\net\at\src\at_client.c</FilePath>
             </File>
             <File>
-              <FileName>VerificationAlgorithm.c</FileName>
+              <FileName>at_socket.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\VerificationAlgorithm.c</FilePath>
+              <FilePath>..\..\..\components\net\at\at_socket\at_socket.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>at_device</GroupName>
+          <Files>
+            <File>
+              <FileName>at_device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\at_device-v2.0.4\src\at_device.c</FilePath>
             </File>
             <File>
-              <FileName>Protocol_BLE.c</FileName>
+              <FileName>at_device_esp8266.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\Protocol_BLE.c</FilePath>
+              <FilePath>packages\at_device-v2.0.4\class\esp8266\at_device_esp8266.c</FilePath>
             </File>
             <File>
-              <FileName>EventInit.c</FileName>
+              <FileName>at_socket_esp8266.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\EventInit.c</FilePath>
+              <FilePath>packages\at_device-v2.0.4\class\esp8266\at_socket_esp8266.c</FilePath>
             </File>
             <File>
-              <FileName>getDataFromRingBuf.c</FileName>
+              <FileName>at_sample_esp8266.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\getDataFromRingBuf.c</FilePath>
+              <FilePath>packages\at_device-v2.0.4\samples\at_sample_esp8266.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>cJSON</GroupName>
+          <Files>
+            <File>
+              <FileName>cJSON.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\cJSON-v1.7.17\cJSON.c</FilePath>
             </File>
             <File>
-              <FileName>oled.c</FileName>
+              <FileName>cJSON_Utils.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MiddleWares\oled\src\oled.c</FilePath>
-            </File>
-            <File>
-              <FileName>oledconf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\MiddleWares\oled\src\oledconf.c</FilePath>
-            </File>
-            <File>
-              <FileName>oledio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\MiddleWares\oled\src\oledio.c</FilePath>
+              <FilePath>packages\cJSON-v1.7.17\cJSON_Utils.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -724,6 +794,46 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Filesystem</GroupName>
+          <Files>
+            <File>
+              <FileName>dfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs_file.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_fs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs_fs.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_posix.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\dfs_posix.c</FilePath>
+            </File>
+            <File>
+              <FileName>poll.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\poll.c</FilePath>
+            </File>
+            <File>
+              <FileName>select.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\src\select.c</FilePath>
+            </File>
+            <File>
+              <FileName>devfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\dfs\filesystems\devfs\devfs.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>finsh</GroupName>
           <Files>
             <File>
@@ -740,6 +850,11 @@
               <FileName>msh.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\finsh\msh.c</FilePath>
+            </File>
+            <File>
+              <FileName>msh_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\finsh\msh_file.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -822,9 +937,144 @@
           <GroupName>libc</GroupName>
           <Files>
             <File>
+              <FileName>libc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\libc\compilers\armlibc\libc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mem_std.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\libc\compilers\armlibc\mem_std.c</FilePath>
+            </File>
+            <File>
+              <FileName>stdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\libc\compilers\armlibc\stdio.c</FilePath>
+            </File>
+            <File>
+              <FileName>stubs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\libc\compilers\armlibc\stubs.c</FilePath>
+            </File>
+            <File>
               <FileName>time.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\components\libc\compilers\common\time.c</FilePath>
+            </File>
+            <File>
+              <FileName>unistd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\libc\compilers\common\unistd.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>my-mqtt</GroupName>
+          <Files>
+            <File>
+              <FileName>MQTTConnectClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTConnectClient.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTConnectServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTConnectServer.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTDeserializePublish.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTDeserializePublish.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTFormat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTFormat.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTPacket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTPacket.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTSerializePublish.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTSerializePublish.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTSubscribeClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTSubscribeClient.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTSubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTSubscribeServer.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTUnsubscribeClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTUnsubscribeClient.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTUnsubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTPacket\src\MQTTUnsubscribeServer.c</FilePath>
+            </File>
+            <File>
+              <FileName>mqtt_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\MQTTClient-C\mqtt_client.c</FilePath>
+            </File>
+            <File>
+              <FileName>mqtt_sample.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\mymqtt-latest\samples\mqtt_sample.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>netdev</GroupName>
+          <Files>
+            <File>
+              <FileName>netdev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\netdev\src\netdev.c</FilePath>
+            </File>
+            <File>
+              <FileName>netdev_ipaddr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\netdev\src\netdev_ipaddr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SAL</GroupName>
+          <Files>
+            <File>
+              <FileName>sal_socket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\sal_socket\src\sal_socket.c</FilePath>
+            </File>
+            <File>
+              <FileName>net_netdb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\sal_socket\socket\net_netdb.c</FilePath>
+            </File>
+            <File>
+              <FileName>af_inet_at.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\sal_socket\impl\af_inet_at.c</FilePath>
+            </File>
+            <File>
+              <FileName>net_sockets.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\sal_socket\socket\net_sockets.c</FilePath>
+            </File>
+            <File>
+              <FileName>dfs_net.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\components\net\sal_socket\dfs_net\dfs_net.c</FilePath>
             </File>
           </Files>
         </Group>

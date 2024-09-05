@@ -12,7 +12,7 @@
 struct rt_event ThreadSync;
 rt_uint32_t EventFlagValue = 0;
 
-
+#define MIDDLE_WARE_EVENT_INIT
 #ifdef MIDDLE_WARE_EVENT_INIT
 
 /**

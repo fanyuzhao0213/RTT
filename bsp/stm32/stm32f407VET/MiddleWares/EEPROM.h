@@ -43,6 +43,9 @@
 // 网络地址举例："255.255.255.255", 最大为15个字节，+1预留字符串结束符
 #define WLAN_NET_ADDR_STRING_BYTE        (15+1)
 
+
+#define TEST_EEPROM_ADDR        (0x00C0)
+
 #define UP_BLE_MAC_EEPROM_ADDR 			(0x00D0)
 #define UP_BLE_MAC_EEPROM_LEN 			(6)
 
@@ -153,5 +156,5 @@ extern void SetWLANResetMCUFlag(ResetMCUTypeDef SetValue);
 extern ResetMCUTypeDef GetWLANResetMCUFlag(void);
 extern rt_err_t WriteWLANResetMCUFlagToEEPROM(ResetMCUTypeDef *pFlagValue);
 extern rt_err_t ReadWLANResetMCUFlagFromEEPROM(void);
-
+extern void LoadWLANInfoFromEEPROM(void);
 #endif

@@ -177,36 +177,73 @@ static void FloatToStr(double num, char *str, uint8_t intLen, uint8_t decLen, ui
   */
 void OLED_Init(void)
 {
-    rt_thread_mdelay(100);
-	write_reg(oled_i2c_bus,Command_ADDR,0xae);
-    write_reg(oled_i2c_bus,Command_ADDR,0xae);//--turn off oled panel
-    write_reg(oled_i2c_bus,Command_ADDR,0x00);//---set low column address
-    write_reg(oled_i2c_bus,Command_ADDR,0x10);//---set high column address
-    write_reg(oled_i2c_bus,Command_ADDR,0x40);//--set start line address  Set Mapping RAM Display Start Line (0x00~0x3F)
-    write_reg(oled_i2c_bus,Command_ADDR,0x81);//--set contrast control register
-    write_reg(oled_i2c_bus,Command_ADDR,0xcf);// Set SEG Output Current Brightness
-    write_reg(oled_i2c_bus,Command_ADDR,0xa1);//--Set SEG/Column Mapping     0xa0左右反置 0xa1正常
-    write_reg(oled_i2c_bus,Command_ADDR,0xc8);//Set COM/Row Scan Direction   0xc0上下反置 0xc8正常
-    write_reg(oled_i2c_bus,Command_ADDR,0xa6);//--set normal display
-    write_reg(oled_i2c_bus,Command_ADDR,0xa8);//--set multiplex ratio(1 to 64)
-	write_reg(oled_i2c_bus,Command_ADDR,0x3f);//--1/64 duty
-    write_reg(oled_i2c_bus,Command_ADDR,0xd3);//-set display offset	Shift Mapping RAM Counter (0x00~0x3F)
-    write_reg(oled_i2c_bus,Command_ADDR,0x00);//-not offset
-    write_reg(oled_i2c_bus,Command_ADDR,0xd5);//--set display clock divide ratio/oscillator frequency
-    write_reg(oled_i2c_bus,Command_ADDR,0x80);//--set divide ratio, Set Clock as 100 Frames/Sec
-    write_reg(oled_i2c_bus,Command_ADDR,0xd9);//--set pre-charge period
-    write_reg(oled_i2c_bus,Command_ADDR,0xf1);//Set Pre-Charge as 15 Clocks & Discharge as 1 Clock
-    write_reg(oled_i2c_bus,Command_ADDR,0xda);//--set com pins hardware configuration
-    write_reg(oled_i2c_bus,Command_ADDR,0x12);
-    write_reg(oled_i2c_bus,Command_ADDR,0xdb);//--set vcomh
-    write_reg(oled_i2c_bus,Command_ADDR,0x40);//Set VCOM Deselect Level
-    write_reg(oled_i2c_bus,Command_ADDR,0x20);//-Set Page Addressing Mode (0x00/0x01/0x02)
-    write_reg(oled_i2c_bus,Command_ADDR,0x02);//
-    write_reg(oled_i2c_bus,Command_ADDR,0x8d);//--set Charge Pump enable/disable
-    write_reg(oled_i2c_bus,Command_ADDR,0x14);//--set(0x10) disable
-    write_reg(oled_i2c_bus,Command_ADDR,0xa4);// Disable Entire Display On (0xa4/0xa5)
-    write_reg(oled_i2c_bus,Command_ADDR,0xa6);// Disable Inverse Display On (0xa6/a7)
-    write_reg(oled_i2c_bus,Command_ADDR,0xaf);//--turn on oled panel
+    rt_thread_mdelay(100); // 延迟100毫秒，确保OLED上电稳定
+
+    write_reg(oled_i2c_bus, Command_ADDR, 0xae); // 关显示
+    write_reg(oled_i2c_bus, Command_ADDR, 0xae); // 重复关显示（可能冗余）
+    write_reg(oled_i2c_bus, Command_ADDR, 0x00); // 设置低列地址
+    write_reg(oled_i2c_bus, Command_ADDR, 0x10); // 设置高列地址
+    write_reg(oled_i2c_bus, Command_ADDR, 0x40); // 设置起始行地址
+    write_reg(oled_i2c_bus, Command_ADDR, 0x81); // 设置对比度控制寄存器
+    write_reg(oled_i2c_bus, Command_ADDR, 0xcf); // 设置SEG输出电流亮度
+    write_reg(oled_i2c_bus, Command_ADDR, 0xa1); // 设置SEG/列映射，0xa0左右反置，0xa1正常
+    write_reg(oled_i2c_bus, Command_ADDR, 0xc8); // 设置COM/行扫描方向，0xc0上下反置，0xc8正常
+    write_reg(oled_i2c_bus, Command_ADDR, 0xa6); // 设置正常显示
+    write_reg(oled_i2c_bus, Command_ADDR, 0xa8); // 设置复用率（1到64）
+    write_reg(oled_i2c_bus, Command_ADDR, 0x3f); // 设置1/64占空比
+    write_reg(oled_i2c_bus, Command_ADDR, 0xd3); // 设置显示偏移
+    write_reg(oled_i2c_bus, Command_ADDR, 0x00); // 无偏移
+    write_reg(oled_i2c_bus, Command_ADDR, 0xd5); // 设置显示时钟分频/振荡器频率
+    write_reg(oled_i2c_bus, Command_ADDR, 0x80); // 设置分频比，时钟设置为100帧/秒
+    write_reg(oled_i2c_bus, Command_ADDR, 0xd9); // 设置预充电周期
+    write_reg(oled_i2c_bus, Command_ADDR, 0xf1); // 设置预充电为15个时钟，放电为1个时钟
+    write_reg(oled_i2c_bus, Command_ADDR, 0xda); // 设置COM引脚硬件配置
+    write_reg(oled_i2c_bus, Command_ADDR, 0x12); // 配置COM引脚
+    write_reg(oled_i2c_bus, Command_ADDR, 0xdb); // 设置VCOMH
+    write_reg(oled_i2c_bus, Command_ADDR, 0x40); // 设置VCOM取消选择电平
+    write_reg(oled_i2c_bus, Command_ADDR, 0x20); // 设置页地址模式（0x00/0x01/0x02）
+    write_reg(oled_i2c_bus, Command_ADDR, 0x02); // 页地址模式
+    write_reg(oled_i2c_bus, Command_ADDR, 0x8d); // 设置电荷泵启用/禁用
+    write_reg(oled_i2c_bus, Command_ADDR, 0x14); // 启用电荷泵
+    write_reg(oled_i2c_bus, Command_ADDR, 0xa4); // 禁用整个显示开启（0xa4/0xa5）
+    write_reg(oled_i2c_bus, Command_ADDR, 0xa6); // 禁用反向显示（0xa6/a7）
+    write_reg(oled_i2c_bus, Command_ADDR, 0xaf); // 开显示
+}
+
+/**
+  * @brief      全部清除.
+  * @note       屏幕会立即刷新
+  * @param[in]  color  画笔颜色.
+  * @retval     None.
+  */
+void OLED_Clear(uint8_t color)
+{
+    oledsize_t x, y;
+
+    for (y = 0; y < sg_tOLedDevInfo.height / 8; y++)
+    {
+        for (x = 0; x < sg_tOLedDevInfo.width; x++)
+        {
+            sg_arrFrameBuffer[x][y] = color;
+        }
+    }
+    
+    OLED_SyncScreen(0, 0, sg_tOLedDevInfo.width, sg_tOLedDevInfo.height);
+}
+
+void MY_OLED_Clear(void)
+{
+    for (uint8_t page = 0; page < 8; page++) // 假设OLED有8页
+    {
+        write_reg(oled_i2c_bus, Command_ADDR, 0xB0 + page); // 设置页地址
+        write_reg(oled_i2c_bus, Command_ADDR, 0x00); // 设置低列地址
+        write_reg(oled_i2c_bus, Command_ADDR, 0x10); // 设置高列地址
+
+        for (uint8_t col = 0; col < 128; col++) // 假设OLED宽度为128列
+        {
+            write_reg(oled_i2c_bus, Data_ADDR, 0x00); // 写入数据，关闭像素
+        }
+    }
 }
 
 /**
@@ -311,26 +348,6 @@ eOledcolor OLED_ReadPoint(oledsize_t x, oledsize_t y)
     }
 }
 
-/**
-  * @brief      全部清除.
-  * @note       屏幕会立即刷新
-  * @param[in]  color  画笔颜色.
-  * @retval     None.
-  */
-void OLED_Clear(uint8_t color)
-{
-    oledsize_t x, y;
-
-    for (y = 0; y < sg_tOLedDevInfo.height / 8; y++)
-    {
-        for (x = 0; x < sg_tOLedDevInfo.width; x++)
-        {
-            sg_arrFrameBuffer[x][y] = color;
-        }
-    }
-    
-    OLED_SyncScreen(0, 0, sg_tOLedDevInfo.width, sg_tOLedDevInfo.height);
-}
 
 /**
   * @brief      局部清除.
@@ -380,9 +397,10 @@ void OLED_SyncScreen(oledsize_t sx, oledsize_t sy, oledsize_t width, oledsize_t 
     for (y = sy; y < ey; y++)
     {
         write_reg(oled_i2c_bus,Command_ADDR,0xb0 + y);                 //设置页地址（0~7）
-        write_reg(oled_i2c_bus,Command_ADDR,(sx & 0x0f) + 0x02);       //设置显示位置—列低地址
-        write_reg(oled_i2c_bus,Command_ADDR,((sx & 0xf0) >> 4) | 0x10);//设置显示位置—列高地址
-
+//        write_reg(oled_i2c_bus,Command_ADDR,(sx & 0x0f) + 0x02);       //设置显示位置—列低地址
+//        write_reg(oled_i2c_bus,Command_ADDR,((sx & 0xf0) >> 4) | 0x10);//设置显示位置—列高地址
+        write_reg(oled_i2c_bus,Command_ADDR,0x00);       //设置显示位置—列低地址
+        write_reg(oled_i2c_bus,Command_ADDR,0x10);//设置显示位置—列高地址
         for (x = sx; x < ex; x++)
         {
 			write_reg(oled_i2c_bus,Data_ADDR,sg_arrFrameBuffer[x][y]);
@@ -744,13 +762,11 @@ static void DrawOneFont(oledsize_t x, oledsize_t y, uint8_t pszFont[2], const fo
 
     if ((idx = IsFontExit(pszFont, pkfontInfo->pkFontIdx)) >= 0)
     {
-		rt_kprintf("1111 idx:%d\n",idx);
         idx *= GetCharDataSize(pkfontInfo->way, pkfontInfo->fontWidth, pkfontInfo->height);
         DrawDotMatrix(x, y, pkfontInfo->way, pkfontInfo->fontWidth, pkfontInfo->height, &pkfontInfo->pkFontBufData[idx]);
     }
     else
     {
-		rt_kprintf("2222\n");
         for (tmpx = 0; tmpx < pkfontInfo->fontWidth; tmpx++)
         {
             for (tmpy = 0; tmpy < pkfontInfo->height; tmpy++)

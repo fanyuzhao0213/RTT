@@ -36,7 +36,8 @@ static const OsTaskStruct OsTaskInitTable[] =
 	{2,          			OsTaskmuartRevData,          	3,                     	5},	
 	{3,						OsTaskuartParseData,			4,						5},
 	{4,						OsDisplayIICThreadInit,			3,						5},
-    {OS_TASK_FUNC_ID_END,          	RT_NULL,            	1,              5},
+	{5,						OsTaskEsp8266Thread,			3,						5},
+    {OS_TASK_FUNC_ID_END,   RT_NULL,            			1,              		5},
 };
 
 /**
@@ -88,9 +89,12 @@ int main(void)
 {
     /* set LED0 pin mode to output */
     rt_pin_mode(LED0_PIN, PIN_MODE_OUTPUT);
+	SemSemNetInfoInit();				//获取网络信息信号量
 	EventCtrlInit();					//事件集初始化
 //	WdgInit();							//看门狗初始化
 	TimerSDevInit(timerSCallback);		//定时器初始化
+	EepromHwInit();						//eeprom初始化
+	LoadWLANInfoFromEEPROM();
 	OsTaskInit();						//各线程初始化
 	SendEvent(EVENT_FLAG_Main);			//发送main线程的事件
 	WaitForThreadSync();				//等待事件同步

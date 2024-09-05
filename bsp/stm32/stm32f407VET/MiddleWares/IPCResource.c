@@ -3,6 +3,41 @@
  */
 
 #include "IPCResource.h"
+/******************************网络信息获取信号量*******************************/
+static struct rt_semaphore SemNetInfo;
+
+rt_int8_t SemSemNetInfoInit(void)
+{
+    rt_err_t result = RT_EOK;
+
+    result = rt_sem_init(&SemNetInfo, "SemNetInfo", 0, RT_IPC_FLAG_FIFO);
+    if (result != RT_EOK)
+    {
+        rt_kprintf("Init %s semaphore failed!\n", "SemNetInfo");
+        return RT_ERROR;
+    }
+    
+    return result;
+}
+
+void ReleaseSemNetInfo(void)
+{
+    rt_sem_release(&SemNetInfo);
+}
+rt_uint8_t GetSemNetInfo(rt_int32_t TimeOut)
+{
+    rt_err_t result = RT_EOK;
+
+    result = rt_sem_take(&SemNetInfo, TimeOut);
+    if (result != RT_EOK)
+    {
+        return RT_ERROR;
+    }
+    
+    return result;
+}
+
+
 
 /******************************蓝牙数据接收信号量*******************************/
 static struct rt_semaphore SemRecvDataFromUart;

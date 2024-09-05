@@ -42,12 +42,20 @@ menu "On-chip Peripheral Drivers"
                 bool "Enable UART1"
                 default n
 
-                if BSP_USING_UART3
+                if BSP_USING_UART1
                    config UART1_BAUD_RATE
                    int "UART1 baud rate"
                    default 115200
                 endif
+            config BSP_USING_UART3
+                bool "Enable UART3"
+                default n
 
+                if BSP_USING_UART3
+                   config UART3_BAUD_RATE
+                   int "UART3 baud rate"
+                   default 115200
+                endif
             config BSP_UART1_RX_USING_DMA
                 bool "Enable UART1 RX DMA"
                 depends on BSP_USING_UART1 && RT_SERIAL_USING_DMA

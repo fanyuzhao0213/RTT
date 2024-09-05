@@ -73,6 +73,8 @@ extern void OLED_SetFloatNum(oledsize_t x, oledsize_t y, float num, uint8_t intL
 extern void OLED_XYPrintf(oledsize_t x, oledsize_t y, uint8_t isMultiLine, efontSize size, const char *format, ...);
 extern void OLED_Printf(const char *format, ...);
 
+
+void MY_OLED_Clear(void);
 #endif  // __OLED_H
 
 
